@@ -14,8 +14,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
+from flask_cors import CORS
+CORS(app)
 
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "super-secret-change-in-production")
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=8)
